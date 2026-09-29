@@ -25,7 +25,9 @@ O preview fica em `http://127.0.0.1:4173/`. O build gera `dist/` com caminhos re
 
 ## Publicar no GitHub Pages
 
-O workflow `.github/workflows/deploy.yml` executa os testes, gera `dist/` e publica o site sempre que há um push para `main`. Para habilitar a publicação, nas configurações do repositório selecione **Settings > Pages > Build and deployment > Source > GitHub Actions**. O endereço do site será `https://douglasonunesinfo.github.io/app-clima-curso/`.
+Na primeira publicação, habilite o Pages nas configurações do repositório: selecione **Settings > Pages > Build and deployment > Source > GitHub Actions**. Sem essa configuração, a etapa `Configure GitHub Pages` do workflow falha porque ainda não existe um site Pages para o repositório.
+
+Depois de habilitar a origem, reexecute o workflow em **Actions**. A partir daí, o workflow `.github/workflows/deploy.yml` executa os testes, gera `dist/` e publica o site sempre que há um push para `main`. O endereço do site é `https://douglasonunesinfo.github.io/app-clima-curso/`.
 
 Os testes automatizados usam respostas controladas e DOM simulado. Não substituem inspeção visual, testes de teclado em navegador ou leitor de tela. A situação de aprovação está em [.docs/tasks.md](./.docs/tasks.md), e as evidências finais estão em [.docs/validation.md](./.docs/validation.md).
 
