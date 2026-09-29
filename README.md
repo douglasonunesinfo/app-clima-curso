@@ -21,7 +21,11 @@ npm run build
 npm run preview -- --host 127.0.0.1 --port 4173 --strictPort
 ```
 
-O preview fica em `http://127.0.0.1:4173/`. O build gera `dist/`, pronto para hospedagem estática com HTTPS na raiz do domínio. O servidor de preview serve para conferência local. Não é necessário publicar os fontes, testes ou `node_modules`.
+O preview fica em `http://127.0.0.1:4173/`. O build gera `dist/` com caminhos relativos, pronto para hospedagem estática na raiz ou em um subdiretório. Não é necessário publicar os fontes, testes ou `node_modules`.
+
+## Publicar no GitHub Pages
+
+O workflow `.github/workflows/deploy.yml` executa os testes, gera `dist/` e publica o site sempre que há um push para `main`. Para habilitar a publicação, nas configurações do repositório selecione **Settings > Pages > Build and deployment > Source > GitHub Actions**. O endereço do site será `https://douglasonunesinfo.github.io/app-clima-curso/`.
 
 Os testes automatizados usam respostas controladas e DOM simulado. Não substituem inspeção visual, testes de teclado em navegador ou leitor de tela. A situação de aprovação está em [.docs/tasks.md](./.docs/tasks.md), e as evidências finais estão em [.docs/validation.md](./.docs/validation.md).
 

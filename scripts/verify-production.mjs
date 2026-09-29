@@ -5,8 +5,8 @@ import { JSDOM, VirtualConsole } from 'jsdom'
 // Executes the built application, not source modules. This does not test browser layout or CORS.
 const base = new URL('../dist/', import.meta.url)
 const html = await readFile(new URL('index.html', base), 'utf8')
-const script = html.match(/src="(\/assets\/[^" ]+\.js)"/)[1]
-const bundle = await readFile(new URL(script.slice(1), base), 'utf8')
+const script = html.match(/src="([^" ]+\.js)"/)[1]
+const bundle = await readFile(new URL(script.replace(/^\/+/, ''), base), 'utf8')
 const errors = []
 const requests = []
 const virtualConsole = new VirtualConsole()
